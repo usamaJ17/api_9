@@ -222,7 +222,7 @@ class MainController extends Controller
             ->select('tbl_category.cid as category_id', 'tbl_category.category_name', 'tbl_category.category_image',
                      DB::raw('COUNT(DISTINCT g.id) as total_wallpaper'))
             ->where('tbl_category.category_status', '1')
-            ->groupBy('tbl_category.cid')
+            ->groupBy('tbl_category.cid', 'tbl_category.category_name', 'tbl_category.category_image')
             ->orderBy($sort, $order)
             ->get();
     
