@@ -385,7 +385,7 @@ class MainController extends Controller
             ->leftJoin('tbl_gallery', 'tbl_category.cid', '=', 'tbl_gallery.cat_id')
             ->where('tbl_category.category_status', 1)
             ->where('tbl_category.category_name', 'like', "%$search%")
-            ->groupBy('tbl_category.cid')
+            ->groupBy('tbl_category.cid', 'tbl_category.category_name', 'tbl_category.category_image')
             ->orderBy('tbl_category.cid', 'DESC')
             ->get();
 
