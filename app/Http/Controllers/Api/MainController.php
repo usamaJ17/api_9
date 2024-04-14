@@ -80,7 +80,7 @@ class MainController extends Controller
                                  'image_resolution AS resolution', 'image_size AS size', 'image_extension AS mime', 
                                  'view_count AS views', 'download_count AS downloads', 'featured', 'tags', 
                                  'cat_id AS category_id', 'rewarded', 'last_update')
-                        ->with('category:id,category_name')
+                        ->with('category:cid,category_name')
                         ->whereHas('category', function ($q) {
                             $q->where('category_status', '1');
                         })
